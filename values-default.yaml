@@ -8,8 +8,15 @@ clusterGroup:
   namespaces:
   - echo
   - curl
+  - egressip-ipam-operator:
+      targetNamespaces: null
 
-  subscriptions: {}
+  subscriptions:
+    egressipam:
+      name: egressip-ipam-operator
+      channel: alpha
+      source: community-operators
+      sourceNamespace: openshift-marketplace
 
   projects:
   - default
