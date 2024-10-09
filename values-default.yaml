@@ -33,6 +33,11 @@ clusterGroup:
       project: default
       namespace: curl
 
+  nodes:
+  - node03.ocp4.gmbros.local:
+      labels:
+        egressGateway: "true"
+
 vars:
   curl:
     url: http://echo-echo.apps.ocp4.gmbros.local/say/Hola
