@@ -32,6 +32,10 @@ clusterGroup:
       path: charts/curl
       project: default
       namespace: curl
+    egressipam:
+      name: egressipam
+      project: default
+      path: charts/egressipam
 
   nodes:
   - node03.ocp4.gmbros.local:
@@ -44,3 +48,7 @@ vars:
     sleep: 5
     node: 'node03.ocp4.gmbros.local'
     timeout: 10
+  egressipam:
+    name: default
+    cidr: 10.0.0.0/24
+    topologyLabel: egressGatewaay
