@@ -2,11 +2,18 @@ clusterGroup:
   name: default
   isHubCluster: true
 
-  namespaces: []
+  namespaces:
+  - echo
 
   subscriptions: {}
 
   projects:
   - default
   
-  applications: {}
+  applications:
+    echo:
+      name: echo
+      path: charts/echo
+      project: default
+      namespace: echo
+

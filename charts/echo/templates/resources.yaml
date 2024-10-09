@@ -1,0 +1,69 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: echo
+  name: echo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deploymentconfig: echo
+  template:
+    metadata:
+      labels:
+        app: echo
+        deploymentconfig: echo
+      name: echo
+    spec:
+      containers:
+      - name: main
+        image: quay.io/soukron/nodejs-echo:v2
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: echo
+  name: echo
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: echo
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: echo
+  name: echo
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: echo
+    deploymentconfig: echo
+  sessionAffinity: None
+  type: ClusterIP
