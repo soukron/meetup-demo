@@ -1,6 +1,6 @@
 ---
 global:
-  pattern: blank
+  pattern: meetup-demo
   secretStore:
     backend: none
   options: {}
