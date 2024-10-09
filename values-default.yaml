@@ -2,6 +2,9 @@ clusterGroup:
   name: default
   isHubCluster: true
 
+  scheduler:
+    mastersSchedulable: true
+    
   namespaces:
   - echo
 
