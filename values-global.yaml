@@ -1,0 +1,12 @@
+---
+global:
+  pattern: blank
+  secretStore:
+    backend: none
+  options: {}
+
+main:
+  clusterGroupName: default
+  multiSourceConfig:
+    enabled: true
+    clusterGroupChartVersion: 0.9.*

@@ -1,0 +1,12 @@
+clusterGroup:
+  name: default
+  isHubCluster: true
+
+  namespaces: []
+
+  subscriptions: {}
+
+  projects:
+  - default
+  
+  applications: {}
