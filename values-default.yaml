@@ -51,4 +51,4 @@ vars:
   egressipam:
     name: default
     cidr: 10.0.0.0/24
-    topologyLabel: egressGatewaay
+    topologyLabel: egressGateway
