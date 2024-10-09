@@ -7,7 +7,10 @@ clusterGroup:
 
   namespaces:
   - echo
-  - curl
+  - curl:
+      annotations:
+        egressip-ipam-operator.redhat-cop.io/egressipam: default
+        egressip-ipam-operator.redhat-cop.io/egressips: 10.0.0.225
   - egressip-ipam-operator:
       targetNamespaces: null
 
