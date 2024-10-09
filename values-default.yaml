@@ -4,9 +4,10 @@ clusterGroup:
 
   scheduler:
     mastersSchedulable: true
-    
+
   namespaces:
   - echo
+  - curl
 
   subscriptions: {}
 
@@ -19,4 +20,15 @@ clusterGroup:
       path: charts/echo
       project: default
       namespace: echo
+    curl:
+      name: curl
+      path: charts/curl
+      project: default
+      namespace: curl
 
+vars:
+  curl:
+    url: http://echo-echo.apps.ocp4.gmbros.local/say/Hola
+    sleep: 5
+    node: 'node03.ocp4.gmbros.local'
+    timeout: 10

@@ -1,0 +1,7 @@
+---
+vars:
+  curl:
+    url: http://localhost/say/Hola
+    sleep: 5
+    node: ''
+    timeout: 10
